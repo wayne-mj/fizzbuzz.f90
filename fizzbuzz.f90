@@ -48,6 +48,7 @@ program fizzbuzz
 
     contains
 
+    ! Convert an integer to string
     function int2str(num) result(str)
         implicit none
     
@@ -57,6 +58,6 @@ program fizzbuzz
         write(str, '(I8)') num
         str = trim(adjustl(str))
     end function int2str
-    
+
 end program fizzbuzz
 
