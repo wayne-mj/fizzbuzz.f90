@@ -30,7 +30,8 @@ program fizzbuzz
 
         !!! If neither case is true assign i to fizz
         if (trigger .eqv. .false.) then
-            write(fizz, '(I0)') i
+            ! write(fizz, '(I0)') i
+            fizz = int2str(i)
         end if
         
         !!! Print the value of fizz
@@ -44,4 +45,18 @@ program fizzbuzz
         i = i + 1
 
     end do
+
+    contains
+
+    function int2str(num) result(str)
+        implicit none
+    
+        integer, intent(in) :: num
+        character(len=8) :: str
+    
+        write(str, '(I8)') num
+        str = trim(adjustl(str))
+    end function int2str
+    
 end program fizzbuzz
+
