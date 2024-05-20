@@ -1,17 +1,13 @@
 FC=gfortran
-MODULES=./Modules
-FIZZ=fizzbuzz
-#FIZZ_MOD=fizzbuzz_mod
+FFLAGS=-O3 -Wall -Wextra
+SRC=fizzbuzz.f90
+OBJ=${SRC:.f90=.o}
 
+%.o: %.f90
+	$(FC) $(FFLAGS) -o $@ -c $<
 
-all: clean fizz
-
-fizz: $(FIZZ).f90 
-	[ ! -e $(MODULES) ] && mkdir -p $(MODULES)
-# $(FC) -c -J$(MODULES) $(FIZZ_MOD).f90
-	$(FC) -c -I$(MODULES) $(FIZZ).f90	 
-	$(FC) -o $(FIZZ) $(FIZZ).o 
+fizzbuzz: $(OBJ)
+	$(FC) $(FFLAGS) -o $@ $(OBJ)
 
 clean:
-	rm -rf $(FIZZ) $(FIZZ).o  $(MODULES) *.mod
-
+	rm -f *.o *.mod fizzbuzz
