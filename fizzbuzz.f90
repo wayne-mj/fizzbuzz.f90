@@ -35,7 +35,7 @@ program fizzbuzz
         end if
         
         !!! Print the value of fizz
-        print *, fizz
+        print *, i, " . . . ", fizz
         
         !!! Reset trigger and fizz
         trigger = .false.
