@@ -11,7 +11,7 @@ program fizzbuzz
     limit = 100
     i = 1
 
-    do while (i < limit +1)
+    do i= 1,limit !while (i < limit +1)
 
         !!! If i is divisible by 3, append "Fizz" to fizz
         if (mod(i,3) == 0) then
@@ -42,8 +42,7 @@ program fizzbuzz
         fizz = ""
 
         !!! Increment i
-        i = i + 1
-
+        !i = i + 1
     end do
 
     contains
